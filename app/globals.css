@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  background-color: #0b0a09;
+  color: #f5f1ee;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(900px 500px at 12% -8%, rgba(217, 45, 11, 0.16), transparent 60%),
+    radial-gradient(800px 460px at 92% 4%, rgba(251, 191, 36, 0.10), transparent 62%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.35);
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-coal-600/70 bg-coal-850/80 backdrop-blur-sm;
+  }
+
+  .card-pad {
+    @apply p-5 sm:p-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+           transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-fire-gradient text-coal-900 shadow-ember-sm hover:brightness-110 active:scale-[0.99];
+  }
+
+  .btn-ghost {
+    @apply btn border border-coal-600 bg-coal-800/60 text-ember-100 hover:border-ember-600/60 hover:bg-coal-700/70;
+  }
+
+  .btn-danger {
+    @apply btn border border-flame-600/50 bg-flame-600/15 text-flame-400 hover:bg-flame-600/25;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-coal-600 bg-coal-900/80 px-3.5 py-2.5 text-sm text-ember-50
+           placeholder:text-coal-500 outline-none transition
+           focus:border-ember-500/70 focus:ring-2 focus:ring-ember-500/20;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-ember-200/70;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-coal-600 bg-coal-800/70 px-2.5 py-1 text-xs font-medium text-ember-100;
+  }
+
+  .stat-label {
+    @apply text-[11px] font-medium uppercase tracking-wider text-ember-200/60;
+  }
+
+  .stat-value {
+    @apply mt-1 text-2xl font-bold tracking-tight text-ember-50;
+  }
+
+  .table-wrap {
+    @apply overflow-x-auto rounded-xl border border-coal-600/70;
+  }
+
+  .tbl {
+    @apply w-full min-w-[560px] text-left text-sm;
+  }
+
+  .tbl thead th {
+    @apply whitespace-nowrap border-b border-coal-600/70 bg-coal-800/70 px-3 py-2.5 text-[11px]
+           font-semibold uppercase tracking-wider text-ember-200/70;
+  }
+
+  .tbl tbody td {
+    @apply border-b border-coal-700/50 px-3 py-2.5 text-ember-100/90;
+  }
+
+  .tbl tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .tbl tbody tr:hover {
+    @apply bg-coal-800/40;
+  }
+}
+
+/* Hide number input spinners for a cleaner money field */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
