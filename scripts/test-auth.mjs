@@ -15,7 +15,7 @@ const u = (await c.query("select * from fn_register_user_with_pin('0245550001','
 ok("register with PIN sets hash + tier", !!u.pin_hash && u.tier === "sub_agent");
 
 const l = (await c.query("select * from fn_login('0245550001','1234')")).rows[0];
-ok("login with correct PIN succeeds", l && l.phone === "0245550001");
+ok("login with correct PIN succeeds", l && l.phone === '0245550001');
 
 async function rejected(label, sql) {
   await c.query("SAVEPOINT s");
